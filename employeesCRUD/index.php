@@ -39,6 +39,7 @@
 
                     $sql = "SELECT * FROM employees";
                     if ($result = mysqli_query($link, $sql)){
+//                        var_dump($result);
                         if (mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
                             echo "<thead>";
@@ -55,23 +56,28 @@
 
                             echo "<tbody>";
                             while ($row = mysqli_fetch_row($result)){
+//                                var_dump($row);
+//                                echo $row[0];
+//
                                 echo "<tr>";
 
-                                echo "<td>" .$row['id'] ."</td>";
-                                echo "<td>" .$row['name'] ."</td>";
-                                echo "<td>" .$row['address'] ."</td>";
-                                echo "<td>" .$row['salary'] ."</td>";
-                                echo "<td>";
-
-                                echo "<a href='read.php?id='". $row['id'] ."title='View Record' data-toggle='tooltip>
-                                        <span class='glyphicon glyphicon-eye-open'></span></a>";
-                                echo "<a href='update.php?id='". $row['id'] ."title='Update Record' data-toggle='tooltip>
-                                        <span class='glyphicon glyphicon-pencil'></span></a>";
-                                echo "<a href='delete.php?id='". $row['id'] ."title='Delete Record' data-toggle='tooltip>
-                                        <span class='glyphicon glyphicon-trash'></span></a>";
-
-                                echo "</td>";
-                                echo "</tr>";
+                                echo "<td>" .$row[0] ."</td>";
+                                echo "<td>" .$row[1] ."</td>";
+                                echo "<td>" .$row[2] ."</td>";
+                                echo "<td>" .$row[3] ."</td>";
+//                                echo "<td>" .$row[4] ."</td>";
+//                                echo "<td>" .$row[5] ."</td>";
+//                                echo "<td>";
+//
+//                                echo "<a href='read.php?id='". $row['id'] ."title='View Record' data-toggle='tooltip>
+//                                        <span class='glyphicon glyphicon-eye-open'></span></a>";
+//                                echo "<a href='update.php?id='". $row['id'] ."title='Update Record' data-toggle='tooltip>
+//                                        <span class='glyphicon glyphicon-pencil'></span></a>";
+//                                echo "<a href='delete.php?id='". $row['id'] ."title='Delete Record' data-toggle='tooltip>
+//                                        <span class='glyphicon glyphicon-trash'></span></a>";
+//
+//                                echo "</td>";
+//                                echo "</tr>";
                             }
                             echo "</tbody>";
                             echo "</table>";
@@ -82,7 +88,7 @@
                     } else{
                         echo "ERROR: Could not able to execute $sql. ".mysqli_error($link);
                     }
-                    mysql_close($link);
+//                    mysql_close($link);
                 ?>
             </div>
         </div>
